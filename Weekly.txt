@@ -1,0 +1,18 @@
+20.12.21:
+Was habe ich gemacht?
+- Dokumentation des Projektes
+- Lauffähig auf Laptop
+- Projekt neu aufgesetzt, da wir nix mehr einlesen möchten
+- Testprojekt in 3D um Unity besser zu lernen
+- Maßstab ausmessen: Wie breit ist eine Tür im Verhältnis zum Agenten	
+	-> Frauen: 39,5 cm Männner 55,5cm
+	-> Tür: ?
+- Unity Testprogramm: Wie funktioniert die UI, wie funktionieren RigidBodys und Boxcollider und ganz besonders wie man PreFabs nutzt um Objekte dynamisch zu erzeugen.
+- A*-Algorithmus implementiert, läuft noch unrund, da Gebäude Geometrie unschön und AgentenAI-CircleCollider funktionieren nicht richtig.
+
+Fragen?
+- Wie genau cognitive maps implementieren? Mit Navigationspunkten? Dann brauch man ja kein Grid.
+
+Was nehme ich mir vor?
+- Einen Agenten per A*-zum Ausgang zu bewegen, die Zeit dabei anzuzeigen und rechtzeitig zu stoppen. Mit Prefabs die Agenten dynamisch im Code zu erzeugen.
+
