@@ -15,6 +15,7 @@ Ziel ist es hier in einer eigenen Datenstruktur ein Routenwahlverfahren für ein
 - Packages: Sammlungen von Dateien und Daten
 - Project Settings: Projekteinstellungen
 - docs: Dokumentation des Projektes
+- img: Bilder die für die schriftliche Ausarbeitung relevant sein könnten
 
 # Zeitplan
 - Woche 1: Geometrie der Umgebung erstellen und Agenten durch Geometrie laufen lassen.

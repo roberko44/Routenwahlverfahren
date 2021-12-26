@@ -5,15 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    public int trigger = 0;
     public float forwardForce;
     public float rightForce;
     public float leftForce;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -31,10 +26,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(-leftForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if(rb.position.y < 0 && trigger == 0)
+        if(rb.position.y < -1f )
         {
-            Debug.Log("We fall. You lose.");
-            trigger = 1;
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }

@@ -16,3 +16,22 @@ Fragen?
 Was nehme ich mir vor?
 - Einen Agenten per A*-zum Ausgang zu bewegen, die Zeit dabei anzuzeigen und rechtzeitig zu stoppen. Mit Prefabs die Agenten dynamisch im Code zu erzeugen.
 
+
+27.12.21:
+Was habe ich gemacht?
+- Neues Repo in GitHub https://github.com/roberko44/Routenwahlverfahren
+- Konzept zu cognitive maps. Was ist cognitive maps und was ist bei der Implementierung zu beachten.
+- Cube Game vollendet. Dinge gelernt wie verschiedene Level (also Szenen), UI und wie Animationen in Unity funktionieren.
+- Mehrere Agenten per Prefabs spawnen lassen.
+- UI mit Evakuierungszeit.
+
+Fragen?
+Cognitve Maps Realisierung sehr schwierig.
+Agenten blocken sich -> GameManager schaltet Rigidbody kurzzeitig aus?
+
+Was nehme ich mir vor?
+- Agent Quantity sauberer programmieren.
+- Agenten blocken sich gegenseitig -> fixen
+- Evakuierung stoppen wenn der letzte Agent ankam nicht der erste.
+- UI mit Start und Agentenanzahl
+- Cognitive Maps erster Ansatz, aber unabhängig vom eigentlichen Programm.
