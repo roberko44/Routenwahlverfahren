@@ -1,0 +1,11 @@
+Cognitve Maps Fragen:
+
+- Ein Agent läuft innerhalb seines gerenderten Bereiches zu der Stelle im Grid die sich am nähesten zum Ausgang befindet. Wie realisiert man aber nur einen bestimmten Bereich zu rendern? Ist das nicht quasi A*, mittendrin breakt man und lässt den Agenten laufen und wenn er angekommen ist, berechnet man weiter?
+
+- Hat jeder Agent einen eigenen (also anderen) gerenderten Bereich?
+
+- Wie wird dieser gerenderte Bereich ermittelt? Random? Nach Sichtweite?
+
+- Wie programmiert man Cognitive Maps sichtbar? Rein theoretisch läuft der Agent zum ersten "Checkpoint" und hat darauf instant den nächsten "Checkpoint" berechnet. Simuliert würde das wie ein flüssiger Übergang aussehen. Brauch man da Breaks?
+
+- Bei verallgemeinertem Wissen muss man dem Grid noch die Eigenschaft geben, zwischen Raum und Flur zu unterscheiden? Die Realisierung stellt sich als echt schwierig da. Die nahestehende Lösung wäre mehrere Grids (zum Beispiel für jeden Raum), aber wie soll man die für den Algorithmus verknüpfen?
