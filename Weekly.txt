@@ -58,3 +58,22 @@ A*:
 - Agenten blocken sich gegenseitig -> fixen
 - Evakuierung stoppen wenn der letzte Agent ankam nicht der erste.
 - UI mit Start und Agentenanzahl
+
+
+10.01.21:
+Was habe ich gemacht?
+- Ein Gridsystem mit Nodes und A*-Pathfinding
+
+Fragen?
+- Cognitive Maps zu realsieren bis zum 24.01 wird quasi unmöglich.
+- Soll ich die Probleme im alten System nicht fixen?
+- Was schreibe ich mit dem Stand in der Bachelorarbeit?
+
+Was nehme ich mir vor?
+- Cognitive Maps?
+
+Im alten Programm:
+- Agent Quantity sauberer programmieren.
+- Agenten blocken sich gegenseitig -> fixen
+- Evakuierung stoppen wenn der letzte Agent ankam nicht der erste.
+- UI mit Start und Agentenanzahl
