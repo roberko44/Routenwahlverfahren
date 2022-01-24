@@ -10,14 +10,42 @@ public class Grid : MonoBehaviour
     Node[,] grid;
 
     float nodeDiameter; //Diameter of a Node
-    int gridSizeX, gridSizeY;
+    public int gridSizeX, gridSizeY;
 
     void Start()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
-        CreateGrid();
+        //CreateGrid();
+    }
+
+    public void CreateDynamicGrid(Vector3 t, int gsx, int gsy)
+    {
+        nodeDiameter = 0.5f * 2;
+        gridSizeX = Mathf.RoundToInt(gsx / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gsy / nodeDiameter);
+
+        Debug.Log("gridsize x : " + gsx);
+        Debug.Log("gridsize y : " + gsy);
+
+
+        grid = new Node[gridSizeX, gridSizeY];
+        // Bottom Left Corner of the World
+        Vector3 worldBottomLeft = t - Vector3.right * gsx / 2 - Vector3.forward * gsy / 2;  //NEED SOME ADJUSTMENT
+
+        for (int x = 0; x < gridSizeX; x++)
+        {
+            for (int y = 0; y < gridSizeY; y++)
+            {
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);  //NEED SOME ADJUSTMENT
+                bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask)); //If there is a collision trigger
+                grid[x, y] = new Node(walkable, worldPoint, x, y);
+
+            }
+        }
+
+        Debug.Log("Node: " + this.grid.Length);
     }
 
     void CreateGrid()

@@ -60,7 +60,7 @@ A*:
 - UI mit Start und Agentenanzahl
 
 
-10.01.21:
+18.01.21:
 Was habe ich gemacht?
 - Ein Gridsystem mit Nodes und A*-Pathfinding
 
@@ -70,10 +70,30 @@ Fragen?
 - Was schreibe ich mit dem Stand in der Bachelorarbeit?
 
 Was nehme ich mir vor?
-- Cognitive Maps?
+- Grid Merging (Corner + Borderhandling) / A* kennt mehrere Grids
+- 1 Grid mit hohen Kosten an der Tür, Zellen zwischen 2 Räumen senken
+- Demo?
+- In der BA: Diskussion nach Technische Analyse
 
 Im alten Programm:
 - Agent Quantity sauberer programmieren.
 - Agenten blocken sich gegenseitig -> fixen
 - Evakuierung stoppen wenn der letzte Agent ankam nicht der erste.
 - UI mit Start und Agentenanzahl
+
+25.01.21
+Was habe ich gemacht?
+Grid Merging
+
+Fragen?
+- Merging funktioniert nicht so gut. Wir mergen nicht direkt alle Grids, sondern erst wenn der Agent ein neuen Grid betritt, dann wird er zu seinem Wissen hinzugefügt. Dort gibt es einige Probleme beim Spannen der Grids und nicht nachvollziehbare Fehlermeldungen.
+Jedes Grid hat einen BoxCollider, welcher triggert, wenn der Agent das Grid betritt. Daraufhin wird die Funktion AddRoom() der neuen "Manager"-Klasse aufgerufen und das Grid in das Dictionary der Manager Klasse hinzugefügt. Problem hier macht die Merging-Funktion und das dazugehörige updaten des neuen dynamischen Grids.
+Die Grids spannen falsch und das Pathfinding funktioniert nicht mehr. Das Programm wurde ursprünglich nicht darauf ausgelegt, weswegen jede Änderung sehr komplex für mich ist.
+
+Was nehme ich mir vor?
+PROGRAMM:
+- 
+
+BA:
+- Gliederung
+- Diskussion nach Technische Analyse
