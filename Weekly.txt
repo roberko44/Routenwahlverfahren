@@ -92,7 +92,10 @@ Die Grids spannen falsch und das Pathfinding funktioniert nicht mehr. Das Progra
 
 Was nehme ich mir vor?
 PROGRAMM:
-- 
+- AABB als Hilfe
+- Index in Index Funktion
+- Lieber Top Right anstatt Lower Left
+
 
 BA:
 - Gliederung

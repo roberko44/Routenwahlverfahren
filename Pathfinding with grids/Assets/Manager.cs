@@ -42,17 +42,50 @@ public class Manager : MonoBehaviour
     private void sumGrid()
     {
         int newGridSizeX = 0, newGridSizeY = 0;
-        Vector3 t = new Vector3(0,0,0);
+        float test = 1337;
+        Vector3 t = new Vector3(0, 0, 0);
+        Vector3 p = new Vector3(0, 0, 0);
         foreach (var item in rooms)
         {
-            t += item.Value.transform.position;
-            newGridSizeX +=  30;
-            //newGridSizeY += item.Value.gridSizeY;
-            t = item.Value.transform.position;
-        }
+            //Detect movement to the right
+            if (test == 1337)
+            {
+                test = item.Value.transform.position.x;
+            }
+            if (item.Value.transform.position.x > test) //new grid is on the right side
+            {
+                test = item.Value.transform.position.x;
+                Debug.Log("Test: " + test);
+            }
+            else 
+            {
 
+                t += item.Value.transform.position;
+                Debug.Log("t: " + t + "transform.position: " + item.Value.transform.position);
+                t = item.Value.transform.position;
+                Debug.Log("t:" + t);
+                
+            }
+            newGridSizeX += 30;
+            /*
+            if (true)
+            {
+                newGridSizeX += 30;
+
+            } else if (true)
+            {
+                newGridSizeY += 30;
+            }*/
+            //newGridSizeY += item.Value.gridSizeY;
+
+
+
+        }
         
+
+        //Wír geben nur t wenn wir uns nach unten begeben
         currentGrid.CreateDynamicGrid(t, newGridSizeX, 30);
+     //   p = rooms.Value.transform.position;
     }
 
     public void addRoom(string name, Grid g)

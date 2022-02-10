@@ -8,6 +8,11 @@ public class Grid : MonoBehaviour
     public Vector2 gridWorldSize; //Area of the Grid
     public float nodeRadius; //Space of Node
     Node[,] grid;
+    private Vector3 zero_point = new Vector3(0, 0, 0);
+    private Vector3 offset = new Vector3(15, 0, 0);
+    private Vector3 offset2 = new Vector3(0, 0, 30);
+    private Vector3 test = new Vector3(15, 0, -15);
+
 
     float nodeDiameter; //Diameter of a Node
     public int gridSizeX, gridSizeY;
@@ -32,7 +37,10 @@ public class Grid : MonoBehaviour
 
         grid = new Node[gridSizeX, gridSizeY];
         // Bottom Left Corner of the World
-        Vector3 worldBottomLeft = t - Vector3.right * gsx / 2 - Vector3.forward * gsy / 2;  //NEED SOME ADJUSTMENT
+       //Vector3 worldBottomLeft = offset + t - Vector3.right * gsx - Vector3.forward * gsy / 2;  //NEED SOME ADJUSTMENT
+      // Vector3 worldBottomLeft =  t - Vector3.right * gsx/2 - Vector3.forward * gsy / 2;
+        Vector3 worldBottomLeft = t - Vector3.right * 30 / 2 - Vector3.forward * gsy / 2;
+        Debug.Log("worldBottomLeft: " + worldBottomLeft);
 
         for (int x = 0; x < gridSizeX; x++)
         {
