@@ -43,6 +43,7 @@ public class Manager : MonoBehaviour
     {
         int newGridSizeX = 0, newGridSizeY = 0;
         float test = 1337;
+        float test2 = 44;
         Vector3 t = new Vector3(0, 0, 0);
         Vector3 p = new Vector3(0, 0, 0);
         foreach (var item in rooms)
@@ -67,6 +68,7 @@ public class Manager : MonoBehaviour
                 
             }
             newGridSizeX += 30;
+
             /*
             if (true)
             {
@@ -78,7 +80,24 @@ public class Manager : MonoBehaviour
             }*/
             //newGridSizeY += item.Value.gridSizeY;
 
+            //Detect vertical movement
+            if (test2 == 44)
+            {
+                test2 = item.Value.transform.position.z;
+            }
+            if (item.Value.transform.position.z > test2) //new grid is on the upper side
+            {
+                test2 = item.Value.transform.position.z;
+                Debug.Log("We are going up.");           //value of worldBottomLeftCorner stays the same
+                Debug.Log("Test: " + test2);
 
+            }
+            else
+            {
+                Debug.Log("We are going down.");
+                Debug.Log("Test: " + test2);
+            }
+            newGridSizeY += 30;
 
         }
         
