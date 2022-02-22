@@ -174,7 +174,7 @@ public class Manager : MonoBehaviour
                         max_y = Mathf.RoundToInt(y_pos);
                     }
 
-                    Debug.Log("X: " + x_pos + " - Y: " + y_pos);
+                   // Debug.Log("X: " + x_pos + " - Y: " + y_pos);
                     y_pos -= 1;
                 }
                 y_pos = room.Value.transform.position.z + 15;

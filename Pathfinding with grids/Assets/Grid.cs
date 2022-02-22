@@ -46,9 +46,9 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);  //NEED SOME ADJUSTMENT
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius); 
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask)); //If there is a collision trigger
-                grid[x, y] = new Node(unwalkable, worldPoint, x, y);
+                grid[x, y] = new Node(walkable, worldPoint, x, y);
 
             }
         }
