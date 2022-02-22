@@ -39,7 +39,7 @@ public class Grid : MonoBehaviour
         // Bottom Left Corner of the World
        //Vector3 worldBottomLeft = offset + t - Vector3.right * gsx - Vector3.forward * gsy / 2;  //NEED SOME ADJUSTMENT
       // Vector3 worldBottomLeft =  t - Vector3.right * gsx/2 - Vector3.forward * gsy / 2;
-        Vector3 worldBottomLeft = t - Vector3.right * 30 / 2 - Vector3.forward * gsy / 2;
+        Vector3 worldBottomLeft = t - Vector3.right * gsx / 2 - Vector3.forward * gsy / 2;
         Debug.Log("worldBottomLeft: " + worldBottomLeft);
 
         for (int x = 0; x < gridSizeX; x++)
@@ -48,7 +48,7 @@ public class Grid : MonoBehaviour
             {
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);  //NEED SOME ADJUSTMENT
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask)); //If there is a collision trigger
-                grid[x, y] = new Node(walkable, worldPoint, x, y);
+                grid[x, y] = new Node(unwalkable, worldPoint, x, y);
 
             }
         }
@@ -111,6 +111,8 @@ public class Grid : MonoBehaviour
     }
 
     public List<Node> path;
+
+
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y)); //y is z in Unity

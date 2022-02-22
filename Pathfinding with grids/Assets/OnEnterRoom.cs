@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class OnEnterRoom : MonoBehaviour
 {
-    bool stayOnce = false;
     Grid g;
     Manager manager;
 

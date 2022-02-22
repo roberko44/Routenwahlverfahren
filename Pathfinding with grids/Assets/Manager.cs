@@ -14,6 +14,8 @@ public class Manager : MonoBehaviour
         rooms = new Dictionary<string, Grid>();
 
         currentGrid = GameObject.Find("A*").GetComponent<Grid>();
+
+       // computeBoundingBox();
     }
 
     // Update is called once per frame
@@ -21,8 +23,11 @@ public class Manager : MonoBehaviour
     {
         if(rooms.Count != 0)
         {
-            sumGrid();
+      //     sumGrid();
         }
+
+      
+      
     }
 
     /*
@@ -44,10 +49,19 @@ public class Manager : MonoBehaviour
         int newGridSizeX = 0, newGridSizeY = 0;
         float test = 1337;
         float test2 = 44;
+        //bool stayOnce = false;
+        //bool stayOnce2 = false;
         Vector3 t = new Vector3(0, 0, 0);
-        Vector3 p = new Vector3(0, 0, 0);
         foreach (var item in rooms)
         {
+            /*
+            if (stayOnce == false)
+            {
+                test = item.Value.transform.position.x;
+                stayOnce = true;
+            }
+            */
+
             //Detect movement to the right
             if (test == 1337)
             {
@@ -100,11 +114,8 @@ public class Manager : MonoBehaviour
             newGridSizeY += 30;
 
         }
-        
 
-        //Wír geben nur t wenn wir uns nach unten begeben
         currentGrid.CreateDynamicGrid(t, newGridSizeX, 30);
-     //   p = rooms.Value.transform.position;
     }
 
     public void addRoom(string name, Grid g)
@@ -113,7 +124,87 @@ public class Manager : MonoBehaviour
         {
             rooms.Add(name, g);
             Debug.Log("room added" + rooms.Count);
+            //sumGrid();
+            computeBoundingBox();
         }
         
     }
+
+
+    public void computeBoundingBox()
+    {
+        //alle räume durchgehen
+        // alle nodes durchgehen
+        // min und max werte bestimmen
+
+        int max_x = -2147483648;
+        int max_y = -2147483648;
+        int min_x = 2147483647;
+        int min_y = 2147483647;
+
+        foreach (var room in rooms)
+        {
+            //   Debug.Log("X: " + room.Value.transform.position.x);
+            //   Debug.Log("Y: " + room.Value.transform.position.z);
+
+            float x_pos = room.Value.transform.position.x -15;
+            float y_pos = room.Value.transform.position.z + 15;
+            //Debug.Log("X: " + x_pos + " - Y: " + y_pos);
+
+
+            for (int x = 0; x <= 30; x++)
+            {
+                
+                for (int y = 0; y <= 30; y++)
+                {
+                    if (x_pos < min_x)
+                    {
+                        min_x = Mathf.RoundToInt(x_pos);
+                    }
+                    if (y_pos < min_y)
+                    {
+                        min_y = Mathf.RoundToInt(y_pos);
+                    }
+                    if (x_pos > max_x)
+                    {
+                        max_x = Mathf.RoundToInt(x_pos);
+                    }
+                    if (y_pos > max_y)
+                    {
+                        max_y = Mathf.RoundToInt(y_pos);
+                    }
+
+                    Debug.Log("X: " + x_pos + " - Y: " + y_pos);
+                    y_pos -= 1;
+                }
+                y_pos = room.Value.transform.position.z + 15;
+                x_pos += 1;
+            }
+
+        }
+
+        Debug.Log("WorldLeftCorner: x(" +min_x + ") ; y(" +min_y +")");
+        Debug.Log("WorldUpperRightCorner: x(" + max_x + ") ; y(" + max_y + ")");
+
+        Vector3 bottomLeftCorner = new Vector3(min_x, 1, min_y);
+        Vector3 upperRightCorner = new Vector3(max_x, 1, max_y);
+        Vector3 gridPos = new Vector3((max_x +min_x)/2, 0, (max_y +min_y)/2);
+        int gridSizeX = max_x - min_x;
+        int gridSizeY = max_y - min_y; ;
+
+        Debug.Log("GridSizeX: " + gridSizeX + " ; GridSizeY: " + gridSizeY + " ; gridPos: " + gridPos);
+        currentGrid.CreateDynamicGrid(gridPos, gridSizeX, gridSizeY);
+    }
+
+    /* just a test
+   void OnDrawGizmos()
+    {
+        Vector3 pos = new Vector3(-30, 0, 0);
+        Gizmos.DrawWireCube(pos, new Vector3(30, 1, 30)); //y is z in Unity
+        float nodeDiameter = 0.5f * 2;
+        Vector3 n = new Vector3(0, 0, 0);
+        Gizmos.DrawCube(n, Vector3.one * (nodeDiameter - .1f));
+        
+    }
+    */
 }
