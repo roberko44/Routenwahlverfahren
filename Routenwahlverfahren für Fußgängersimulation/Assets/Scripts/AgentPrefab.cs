@@ -13,7 +13,7 @@ public class AgentPrefab : MonoBehaviour
     {
        for(int i = 0; i < agentQuantity; i++)
         {
-            Vector2 pos = new Vector2(i+3, 5f);
+            Vector2 pos = new Vector2(i-13, 5f);
             GameObject agent = Instantiate(agentPrefab, pos, Quaternion.identity);
         }
        

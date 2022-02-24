@@ -6,15 +6,21 @@ public class Pathfinding : MonoBehaviour
 {
     public Transform seeker, target;
     Grid grid;
-
+    Manager manager;
     void Start()
     {
         grid = GetComponent<Grid>();
+        //grid = GameObject.Find("Manager").GetComponent<Manager>().currentGrid;
     }
 
          void Update()
         {
-            FindPath(seeker.position, target.position);
+            if(GameObject.Find("Manager").GetComponent<Manager>().currentGrid != null)
+            {
+             grid = GameObject.Find("Manager").GetComponent<Manager>().currentGrid;
+             FindPath(seeker.position, target.position);
+            }
+            
         }
         void FindPath(Vector3 startPos, Vector3 targetPos)
         {
