@@ -30,8 +30,7 @@ public class Manager : MonoBehaviour
       
     }
 
-    /*
-     * Example For Grid Merging
+    /*Example For Grid Merging
      * 
      * private static int[][] Concat(int[][] array1, int[][] array2)
     {
@@ -44,7 +43,7 @@ public class Manager : MonoBehaviour
     }
      */
 
-    private void sumGrid()
+    /*private void sumGrid()
     {
         int newGridSizeX = 0, newGridSizeY = 0;
         float test = 1337;
@@ -54,14 +53,6 @@ public class Manager : MonoBehaviour
         Vector3 t = new Vector3(0, 0, 0);
         foreach (var item in rooms)
         {
-            /*
-            if (stayOnce == false)
-            {
-                test = item.Value.transform.position.x;
-                stayOnce = true;
-            }
-            */
-
             //Detect movement to the right
             if (test == 1337)
             {
@@ -83,16 +74,7 @@ public class Manager : MonoBehaviour
             }
             newGridSizeX += 30;
 
-            /*
-            if (true)
-            {
-                newGridSizeX += 30;
-
-            } else if (true)
-            {
-                newGridSizeY += 30;
-            }*/
-            //newGridSizeY += item.Value.gridSizeY;
+        
 
             //Detect vertical movement
             if (test2 == 44)
@@ -117,6 +99,7 @@ public class Manager : MonoBehaviour
 
         currentGrid.CreateDynamicGrid(t, newGridSizeX, 30);
     }
+    */
 
     public void addRoom(string name, Grid g)
     {
@@ -196,7 +179,7 @@ public class Manager : MonoBehaviour
         currentGrid.CreateDynamicGrid(gridPos, gridSizeX, gridSizeY);
     }
 
-    /* just a test
+    /*just a test
    void OnDrawGizmos()
     {
         Vector3 pos = new Vector3(-30, 0, 0);

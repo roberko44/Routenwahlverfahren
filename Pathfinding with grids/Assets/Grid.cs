@@ -46,8 +46,11 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeY; y++)
             {
-                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius); 
+               //bool walkable = false;
+
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask)); //If there is a collision trigger
+                
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
 
             }
@@ -56,7 +59,7 @@ public class Grid : MonoBehaviour
         Debug.Log("Node: " + this.grid.Length);
     }
 
-    void CreateGrid()
+    /*void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
         // Bottom Left Corner of the World
@@ -72,7 +75,7 @@ public class Grid : MonoBehaviour
             
             }
         }
-    }
+    }*/
     
     public List<Node> GetNeighbours(Node node)
     {
